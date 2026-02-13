@@ -7,10 +7,12 @@ use Inertia\Response;
 use App\Models\Resident;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Imports\ResidentsImport;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ResidentController extends Controller implements HasMiddleware
 {
@@ -192,5 +194,37 @@ class ResidentController extends Controller implements HasMiddleware
         return redirect()
             ->route('admin.residents.index')
             ->with('success', 'Data penduduk berhasil dihapus.');
+    }
+
+    /**
+     * import
+     *
+     * @return void
+     */
+    public function import()
+    {
+        return Inertia::render('Admin/Residents/Import');
+    }
+
+    /**
+     * storeImport
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function storeImport(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        Excel::import(
+            new ResidentsImport,
+            $request->file('file')
+        );
+
+        return redirect()
+            ->route('admin.residents.index')
+            ->with('success', 'Data penduduk berhasil diimport.');
     }
 }

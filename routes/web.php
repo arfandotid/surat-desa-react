@@ -51,6 +51,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // route resource untuk user
         Route::resource('/users', App\Http\Controllers\Admin\UserController::class);
 
+        // route residents import
+        Route::get('/residents/import', [App\Http\Controllers\Admin\ResidentController::class, 'import'])
+            ->name('residents.import');
+
+        // route residents store import
+        Route::post('/residents/import', [App\Http\Controllers\Admin\ResidentController::class, 'storeImport'])
+            ->name('residents.storeImport');
+
         // route resource untuk resident
         Route::resource('/residents', App\Http\Controllers\Admin\ResidentController::class);
     });
