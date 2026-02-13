@@ -44,5 +44,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route resource untuk permission
         Route::resource('/permissions', App\Http\Controllers\Admin\PermissionController::class);
+
+        // route resource untuk role
+        Route::resource('/roles', App\Http\Controllers\Admin\RoleController::class);
     });
 });
