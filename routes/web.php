@@ -50,5 +50,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route resource untuk user
         Route::resource('/users', App\Http\Controllers\Admin\UserController::class);
+
+        // route resource untuk resident
+        Route::resource('/residents', App\Http\Controllers\Admin\ResidentController::class);
     });
 });
