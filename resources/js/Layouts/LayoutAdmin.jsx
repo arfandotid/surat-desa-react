@@ -69,7 +69,7 @@ export default function LayoutAdmin({ children }) {
     // Cek apakah route saat ini adalah create atau edit letter template
     const isLetterTemplateCreateOrEdit =
         currentPath.startsWith("/admin/letter-templates/create") ||
-        currentPath.includes("/admin/letter-templates/edit/");
+        /\/admin\/letter-templates\/\d+\/edit/.test(currentPath);
 
     // useEffect untuk handle klik di luar dropdown
     useEffect(() => {

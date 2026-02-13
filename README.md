@@ -7,6 +7,8 @@
     <pre><code>composer install</code></pre>
     NPM :
     <pre><code>npm install</code></pre>
+    Copy TinyMCE :
+    <pre><code>npm run postinstall</code></pre>
 2.  Copy .env from example
     <pre><code>cp .env.example .env</code></pre>
 3.  Generate App Key

@@ -65,5 +65,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route resource untuk resident
         Route::resource('/residents', App\Http\Controllers\Admin\ResidentController::class);
+
+        // route resource untuk letter template
+        Route::resource('/letter-templates', App\Http\Controllers\Admin\LetterTemplateController::class);
     });
 });

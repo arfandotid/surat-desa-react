@@ -1,0 +1,16 @@
+export const villageVariables = [
+    { key: "village_name", label: "Nama Desa" },
+    { key: "village_address", label: "Alamat Desa" },
+    { key: "village_phone", label: "No. Telepon Desa" },
+    { key: "village_email", label: "Email Desa" },
+    { key: "village_website", label: "Website Desa" },
+    { key: "village_logo", label: "Logo Desa" },
+    { key: "subdistrict_name", label: "Nama Kecamatan" },
+    { key: "regency_name", label: "Nama Kabupaten" },
+    { key: "province_name", label: "Nama Provinsi" },
+    { key: "official_name", label: "Nama Kepala Desa" },
+    { key: "official_position", label: "Jabatan Kepala Desa" },
+    { key: "official_phone", label: "No. Telepon Kepala Desa" },
+    { key: "official_email", label: "Email Kepala Desa" },
+    { key: "official_nipd", label: "NIPD Kepala Desa" },
+];
