@@ -33,5 +33,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route dashboard admin
         Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+        // route settings
+        Route::get('/settings', [App\Http\Controllers\Admin\SettingController::class, 'index'])
+            ->name('settings.index');
+
+        // route settings update
+        Route::put('/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])
+            ->name('settings.update');
     });
 });
