@@ -59,6 +59,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/residents/import', [App\Http\Controllers\Admin\ResidentController::class, 'storeImport'])
             ->name('residents.storeImport');
 
+        // route residents export
+        Route::get('/residents/export', [App\Http\Controllers\Admin\ResidentController::class, 'export'])
+            ->name('residents.export');
+
         // route resource untuk resident
         Route::resource('/residents', App\Http\Controllers\Admin\ResidentController::class);
     });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ResidentsExport;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Resident;
@@ -226,5 +227,20 @@ class ResidentController extends Controller implements HasMiddleware
         return redirect()
             ->route('admin.residents.index')
             ->with('success', 'Data penduduk berhasil diimport.');
+    }
+
+    /**
+     * export
+     *
+     * @return void
+     */
+    public function export()
+    {
+        $date = now()->format('Y-m-d');
+
+        return Excel::download(
+            new ResidentsExport,
+            "data-penduduk-{$date}.xlsx"
+        );
     }
 }
