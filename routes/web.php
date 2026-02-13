@@ -41,5 +41,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // route settings update
         Route::put('/settings', [App\Http\Controllers\Admin\SettingController::class, 'update'])
             ->name('settings.update');
+
+        // route resource untuk permission
+        Route::resource('/permissions', App\Http\Controllers\Admin\PermissionController::class);
     });
 });
