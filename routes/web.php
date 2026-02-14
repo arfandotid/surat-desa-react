@@ -71,5 +71,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route resource untuk letter
         Route::resource('/letters', App\Http\Controllers\Admin\LetterController::class)->only(['index', 'show', 'update']);
+
+        // route untuk letter completed
+        Route::get('/letter-completeds', [App\Http\Controllers\Admin\LetterCompletedController::class, 'index'])
+            ->name('letter-completeds.index');
+
+        // route print letters
+        Route::get('/letter-completeds/print/{reference}', [App\Http\Controllers\Admin\LetterCompletedController::class, 'print'])
+            ->name('letter-completeds.print');
     });
 });

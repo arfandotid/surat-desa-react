@@ -131,3 +131,44 @@
 .swal2-cancel:focus {
     box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.5) !important;
 }
+/**
+ * Print
+ */
+@media print {
+    @page {
+        size: A4;
+        margin: 0mm;
+    }
+
+    /* Sembunyikan semua elemen */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Tampilkan hanya area print */
+    #print,
+    #print * {
+        visibility: visible;
+    }
+
+    /* Pastikan posisi print benar */
+    #print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: transparent !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    #print .prose table {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    /* Bersihkan body */
+    body {
+        background: white !important;
+    }
+}
