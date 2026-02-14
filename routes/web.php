@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route home
+Route::get('/', [\App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 
 // ==============================================
 // ROUTES UNTUK ADMIN
