@@ -68,5 +68,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // route resource untuk letter template
         Route::resource('/letter-templates', App\Http\Controllers\Admin\LetterTemplateController::class);
+
+        // route resource untuk letter
+        Route::resource('/letters', App\Http\Controllers\Admin\LetterController::class)->only(['index', 'show', 'update']);
     });
 });
