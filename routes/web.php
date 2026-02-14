@@ -24,7 +24,6 @@ Route::post('/admin/login', [\App\Http\Controllers\Admin\Auth\LoginController::c
 Route::post('/admin/logout', [\App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])
     ->name('admin.logout');
 
-
 // prefix "admin" untuk admin
 Route::prefix('admin')->name('admin.')->group(function () {
 
@@ -80,4 +79,25 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/letter-completeds/print/{reference}', [App\Http\Controllers\Admin\LetterCompletedController::class, 'print'])
             ->name('letter-completeds.print');
     });
+});
+
+
+// ==============================================
+// ROUTES UNTUK RESIDENT (PENDUDUK)
+// ==============================================
+
+// Route login resident
+Route::get('/login', [\App\Http\Controllers\Web\Auth\LoginController::class, 'index'])->name('login');
+
+// Route proses login resident
+Route::post('/login', [\App\Http\Controllers\Web\Auth\LoginController::class, 'store'])->name('login.store');
+
+// Route logout resident
+Route::post('/logout', [\App\Http\Controllers\Web\Auth\LoginController::class, 'logout'])->name('logout');
+
+// Group untuk resident yang sudah login
+Route::middleware('auth:resident')->group(function () {
+
+    // Dashboard resident
+    Route::get('/dashboard', [\App\Http\Controllers\Web\DashboardController::class, 'index'])->name('resident.dashboard.index');
 });

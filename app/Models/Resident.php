@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Resident extends Model
+class Resident extends Authenticatable
 {
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         'nik',
         'name',
@@ -24,6 +29,11 @@ class Resident extends Model
         'meta',
     ];
 
+    /**
+     * letters
+     *
+     * @return void
+     */
     public function letters()
     {
         return $this->hasMany(Letter::class);
