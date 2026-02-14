@@ -99,4 +99,16 @@ Route::middleware('auth:resident')->group(function () {
 
     // Dashboard resident
     Route::get('/dashboard', [\App\Http\Controllers\Web\DashboardController::class, 'index'])->name('resident.dashboard.index');
+
+    // print letter milik resident
+    Route::get('/my-letters/print/{reference}', [\App\Http\Controllers\Web\MyLetterController::class, 'print'])
+        ->name('resident.my-letters.print');
+
+    // Resource untuk surat yang dimiliki resident
+    Route::get('/my-letters', [\App\Http\Controllers\Web\MyLetterController::class, 'index'])
+        ->name('resident.my-letters.index');
+
+    // Resource untuk surat yang dimiliki resident
+    Route::get('/my-letters/{reference}', [\App\Http\Controllers\Web\MyLetterController::class, 'show'])
+        ->name('resident.my-letters.show');
 });
