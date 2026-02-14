@@ -111,4 +111,10 @@ Route::middleware('auth:resident')->group(function () {
     // Resource untuk surat yang dimiliki resident
     Route::get('/my-letters/{reference}', [\App\Http\Controllers\Web\MyLetterController::class, 'show'])
         ->name('resident.my-letters.show');
+
+    // template surat yang bisa diakses resident
+    Route::resource('/letters', App\Http\Controllers\Web\LetterController::class)->only(['index', 'create', 'store'])
+        ->name('index', 'resident.letters.index')
+        ->name('create', 'resident.letters.create')
+        ->name('store', 'resident.letters.store');
 });

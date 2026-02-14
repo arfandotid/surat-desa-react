@@ -222,7 +222,7 @@ export default function LettersCompleted() {
                                                     {letter.status ===
                                                         "approved" && (
                                                         <Link
-                                                            href={`/admin/letters/print/${letter.reference}`}
+                                                            href={`/admin/letter-completeds/print/${letter.reference}`}
                                                             target="_blank"
                                                             className="inline-flex items-center p-2 bg-gray-100 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors duration-200 ml-2"
                                                             title="Unduh Surat"
